@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.amazon.*")
+@ComponentScan(basePackages = "com.app.*")
 public class AppConfiguration {
 
 }
