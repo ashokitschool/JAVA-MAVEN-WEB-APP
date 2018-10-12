@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.domain.User;
 import com.app.service.UserService;
 
-
 /**
+ * This class exposed as RestResource
  * 
  * @author Ashok
  *
@@ -20,11 +20,18 @@ import com.app.service.UserService;
 @RestController
 public class UserRestController {
 
+	//Injecting Service Object into RestController
 	@Autowired(required = true)
 	private UserService service;
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = { "application/xml",
-			"application/json" })
+	/**
+	 * This method is used to Add the user - Binded to POST request 
+	 * It accepts both XML and JSON data as input
+	 * 
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = { "application/xml", "application/json" })
 	public @ResponseBody String addUser(@RequestBody User user) {
 		boolean isAdded = service.add(user);
 		if (isAdded) {
@@ -34,16 +41,28 @@ public class UserRestController {
 		}
 	}
 
-	@RequestMapping(value = "/get", produces = { "application/xml", "application/json" },method=RequestMethod.GET)
+	/**
+	 * This method is used to Get the User details - Binded to GET request
+	 * This method produces the data in XML or JSON format
+	 * 
+	 * @param uid
+	 * @return
+	 */
+	@RequestMapping(value = "/get", produces = { "application/xml", "application/json" }, method = RequestMethod.GET)
 	@ResponseBody
 	public User getUserById(@RequestParam(name = "uid") String uid) {
-		System.out.println("Getting User with User Id : "+uid);
+		System.out.println("Getting User with User Id : " + uid);
 		User user = service.get(uid);
 		return user;
 	}
 
-	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = { "application/xml",
-			"application/json" })
+	/**
+	 * This method is used to Update the User details - Binded to PUT request
+	 * @param uid
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = { "application/xml", "application/json" })
 	public @ResponseBody String update(@RequestParam("uid") String uid, @RequestBody User user) {
 		boolean isAdded = service.update(uid, user);
 		if (isAdded) {
@@ -53,6 +72,11 @@ public class UserRestController {
 		}
 	}
 
+	/**
+	 * This method is used to Delete the User details - Binded to DELETE request
+	 * @param uid
+	 * @return
+	 */
 	@RequestMapping(value = "/delete", method = RequestMethod.DELETE)
 	public @ResponseBody String delete(@RequestParam("uid") String uid) {
 		boolean isAdded = service.delete(uid);

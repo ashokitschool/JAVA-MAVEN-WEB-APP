@@ -2,6 +2,11 @@ package com.app.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+/**
+ * This class is used to Initialize Dispatcher Servlet
+ * @author Ashok
+ *
+ */
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
