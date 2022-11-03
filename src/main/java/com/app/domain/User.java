@@ -1,8 +1,8 @@
 package com.app.domain;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+//import javax.xml.bind.annotation.XmlAccessType;
+//import javax.xml.bind.annotation.XmlAccessorType;
+//import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * This class is used to set/get the user details
@@ -10,8 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Ashok
  *
  */
-@XmlRootElement(name = "user")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement(name = "user")
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class User {
 
 	private Integer userid;
