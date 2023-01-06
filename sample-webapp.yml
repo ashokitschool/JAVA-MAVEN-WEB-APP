@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: spring-boot-k8s-deployment
+spec:
+  selector:
+    matchLabels:
+      app: spring-boot-k8s
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: spring-boot-k8s
+    spec:
+      containers:
+        - name: spring-boot-k8s
+          image: Bujji369/sriram-web 
+         
+          ports:
+            - containerPort: 8080 
+
+
+---
+
+apiVersion: v1 
+kind: Service
+metadata: 
+  name: springboot-k8ssvc
+spec:
+  selector:
+    app: spring-boot-k8s
+  ports:
+    - protocol: "TCP"
+      port: 8080 
+      targetPort: 8080 
+  type: NodePort
