@@ -31,7 +31,7 @@ public class UserRestController {
 	 * @param user
 	 * @return
 	 */
-	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = { "application/xml", "application/json" })
+	@RequestMapping(value = "/add", method = RequestMethod.POST, consumes = {"application/json" })
 	public @ResponseBody String addUser(@RequestBody User user) {
 		boolean isAdded = service.add(user);
 		if (isAdded) {
@@ -48,7 +48,7 @@ public class UserRestController {
 	 * @param uid
 	 * @return
 	 */
-	@RequestMapping(value = "/get", produces = { "application/xml", "application/json" }, method = RequestMethod.GET)
+	@RequestMapping(value = "/get", produces = { "application/json" }, method = RequestMethod.GET)
 	@ResponseBody
 	public User getUserById(@RequestParam(name = "uid") String uid) {
 		System.out.println("Getting User with User Id : " + uid);
@@ -62,7 +62,7 @@ public class UserRestController {
 	 * @param user
 	 * @return
 	 */
-	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = { "application/xml", "application/json" })
+	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = { "application/json" })
 	public @ResponseBody String update(@RequestParam("uid") String uid, @RequestBody User user) {
 		boolean isAdded = service.update(uid, user);
 		if (isAdded) {
